@@ -10,7 +10,7 @@ public class Die {
     public Die(int i) {
         sideNumber = i;
     }
-    public void Roll(){
+    public void roll(){
         Random Ran = new Random();
         faceValue = Ran.nextInt(sideNumber) + 1;
     }
