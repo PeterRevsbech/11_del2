@@ -11,8 +11,9 @@ public class Main {
         Player spiller = new Player("Svend",3000);
         DiceCup DC = new DiceCup(2,6);
         for (int i=1; i<=10; i++) {
-            System.out.println(spiller.getPoint());
+            System.out.println(spiller.getAccountBalance());
             spiller.playTurn(DC);
+
 
         }
 
