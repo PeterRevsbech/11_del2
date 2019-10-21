@@ -1,4 +1,4 @@
-package Program;
+package program;
 import java.util.*;
 
 public class Die {

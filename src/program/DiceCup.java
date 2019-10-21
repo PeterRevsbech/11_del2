@@ -1,6 +1,5 @@
-package Program;
+package program;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class DiceCup {
         int sum=0;
         for (int i=0; i < diceNumber; i++) {
             dieList.get(i).roll();
-            sum =+ dieList.get(i).getFaceValue();
+            sum = sum + dieList.get(i).getFaceValue();
         }
         this.dieSum = sum;
     }
