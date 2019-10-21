@@ -9,9 +9,10 @@ public class Main {
         System.out.println(kop.getDieSum());
 
         Player spiller = new Player("Svend",3000);
+        DiceCup DC = new DiceCup(2,6);
         for (int i=1; i<=10; i++) {
             System.out.println(spiller.getPoint());
-            spiller.playTurn(6,2);
+            spiller.playTurn(DC);
 
         }
 

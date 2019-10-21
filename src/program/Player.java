@@ -10,10 +10,9 @@ public class Player {
 
     }
 
-    public void playTurn(int sideNumber1, int diceNumber1){
+    public void playTurn(DiceCup DC){
         while(true) {
             System.out.println("Det er " + this.getName() + "´s tur.");
-            DiceCup DC = new DiceCup(diceNumber1, sideNumber1);
             DC.rollDice();
             System.out.println(this.getName() + " slog " + DC.getDieSum());
             switch (DC.getDieSum()) {
