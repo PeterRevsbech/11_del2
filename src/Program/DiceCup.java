@@ -12,7 +12,7 @@ public class DiceCup {
     public DiceCup(int diceNumber, int diceSideNumber) {
         this.diceNumber = diceNumber;
         for (int i =1; i<=diceNumber;i++) {
-            dieList.add(new Die());
+            dieList.add(new Die(diceSideNumber));
         }
     }
 
