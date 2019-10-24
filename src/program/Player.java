@@ -1,8 +1,10 @@
 package program;
 
 public class Player {
-    private Account account = new Account(3000);
+    private Account account = new Account(1000);
     private String name;
+    private boolean won = false;
+    private final int MAXPOINT = 3000;
 
     public Player(String name,int pointStart){
         account.setBalance(pointStart);
@@ -11,7 +13,7 @@ public class Player {
 
     public void playTurn(DiceCup DC){
         while(true) {
-            System.out.println("Det er " + this.getName() + "´s tur.");
+            System.out.println("\nDet er " + this.getName() + "´s tur.");
             DC.rollDice();
             System.out.println(this.getName() + " slog " + DC.getDieSum());
             switch (DC.getDieSum()) {
@@ -59,9 +61,17 @@ public class Player {
                     System.out.println("Du ramte Goldmine: +650 point!");
                     break;
             }
+            System.out.println("Du har nu " + this.getAccountBalance() + " point.");
+
+            if (this.getAccountBalance() >= MAXPOINT) {
+                this.won = true;
+            }
+
             if(DC.getDieSum() != 10){
                 break;
             }
+
+
 
         }
     }
@@ -78,5 +88,12 @@ public class Player {
         return name;
     }
 
+    public boolean getWon() {
+        return this.won;
+    }
+
+    public void setWon(boolean x) {
+        this.won = x;
+    }
 
 }
