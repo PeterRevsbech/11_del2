@@ -14,6 +14,7 @@ public class Player {
         account.setBalance(pointStart);
         this.name = name;
         this.guiPlayer = new GUI_Player(name,pointStart);
+
     }
 
     public void playTurn(DiceCup DC){
@@ -66,8 +67,7 @@ public class Player {
                     System.out.println("Du ramte Goldmine: +650 point!");
                     break;
             }
-            this.guiPlayer.setBalance(this.getAccountBalance());
-
+            this.getGuiPlayer().setBalance(this.getAccountBalance());
             System.out.println("Du har nu " + this.getAccountBalance() + " point.");
 
             if (this.getAccountBalance() >= MAXPOINT) {
@@ -77,9 +77,6 @@ public class Player {
             if(DC.getDieSum() != 10){
                 break;
             }
-
-
-
         }
     }
 
@@ -87,8 +84,13 @@ public class Player {
         return account.getBalance();
     }
 
+    public Account getAccount(){
+        return this.account;
+    }
+
     public void setName(String name) {
         this.name = name;
+        this.getGuiPlayer().setName(name);
     }
 
     public String getName() {
@@ -104,6 +106,6 @@ public class Player {
     }
 
     public GUI_Player getGuiPlayer() {
-        return guiPlayer;
+        return this.guiPlayer;
     }
 }

@@ -1,16 +1,29 @@
 package program;
 
+import gui_fields.GUI_Field;
 import gui_main.GUI;
+import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        GUI gui = new GUI();
+
+        GUI.setNull_fields_allowed(true);
+        GUI_Field[] fields = new GUI_Field[40];
+        GUI gui = new GUI(fields, Color.white);
+        final String regler = "Spilleregler:" +
+                "\nSpillet spilles af to spillere, som skiftes til at slå med terningerne. Man starter med 1000 point. "
+                + "Antallet af øjne afgør hvilket felt man lander på. På hvert felt fratrækkes eller tillægges et antal point til spillerens pointbeholdning. "+
+                "Den spiller som først opnår 3000 point har vundet. Det er ikke muligt at tabe flere point end man har. Man kan altså ikke opnå negative point.";
+
+
         gui.showMessage("Velkommen til terningespillet version 2!");
-        String navn1 = gui.getUserString("Spiller 1 skriv dit navn.");
-        String navn2 = gui.getUserString("Spiller 2 skriv dit navn.");
-        Player p1 = new Player(navn1, 1000);
-        Player p2 = new Player(navn2, 1000);
+
+        String name1 = gui.getUserString("Spiller 1 skriv dit navn.");
+        Player p1 = new Player(name1, 1000);
         gui.addPlayer(p1.getGuiPlayer());
+
+        String name2 = gui.getUserString("Spiller 2 skriv dit navn.");
+        Player p2 = new Player(name2, 1000);
         gui.addPlayer(p2.getGuiPlayer());
 
         boolean afslut = false;
@@ -18,53 +31,32 @@ public class Main {
         String selection = gui.getUserButtonPressed("Hovedmenu", "Nyt spil", "Spilleregler", "Ændre spillernavne", "Afslut");
         switch (selection) {
             case "Nyt spil":
-                p1 = new Player(navn1, 1000);
-                p2 = new Player(navn2, 1000);
+                p1.setWon(false);
+                p2.setWon(false);
+                p1.getAccount().setBalance(1000);
+                p2.getAccount().setBalance(1000);
                 DiceCup dc = new DiceCup(2,6);
                 Game game = new Game(p1,p2,dc);
                 game.play();
 
                 break;
             case "Spilleregler":
-                gui.showMessage("Regler...");
+                gui.showMessage(regler);
                 break;
             case "Ændre spillernavne":
-                navn1 = gui.getUserString("Spiller 1 skriv dit navn.");
-                navn2 = gui.getUserString("Spiller 2 skriv dit navn.");
+                name1 = gui.getUserString("Spiller 1 skriv dit navn.");
+                p1.setName(name1);
+                name2 = gui.getUserString("Spiller 2 skriv dit navn.");
+                p2.setName(name2);
                 break;
             case "Afslut":
                 afslut = true;
+                gui.close();
                 break;
 
 
         }
         }
-
-
-
-
-
-
-
-
-
-
-
-        /*DiceCup kop = new DiceCup(2,6 );
-        kop.rollDice();
-        System.out.println(kop.getDieSum());
-
-        Player spiller = new Player("Svend",3000);
-        DiceCup DC = new DiceCup(2,6);
-        for (int i=1; i<=10; i++) {
-            System.out.println(spiller.getAccountBalance());
-            spiller.playTurn(DC);
-
-
-        }
-
-    */
-
 
 
     }
