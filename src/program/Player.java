@@ -1,14 +1,19 @@
 package program;
+import gui_fields.GUI_Player;
+import gui_main.GUI;
 
 public class Player {
     private Account account = new Account(1000);
-    private String name;
+    private String name = "ukendt";
     private boolean won = false;
+    private GUI_Player guiPlayer;
+
     private final int MAXPOINT = 3000;
 
     public Player(String name,int pointStart){
         account.setBalance(pointStart);
         this.name = name;
+        this.guiPlayer = new GUI_Player(name,pointStart);
     }
 
     public void playTurn(DiceCup DC){
@@ -61,6 +66,8 @@ public class Player {
                     System.out.println("Du ramte Goldmine: +650 point!");
                     break;
             }
+            this.guiPlayer.setBalance(this.getAccountBalance());
+
             System.out.println("Du har nu " + this.getAccountBalance() + " point.");
 
             if (this.getAccountBalance() >= MAXPOINT) {
@@ -96,4 +103,7 @@ public class Player {
         this.won = x;
     }
 
+    public GUI_Player getGuiPlayer() {
+        return guiPlayer;
+    }
 }
