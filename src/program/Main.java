@@ -10,6 +10,8 @@ public class Main {
         GUI.setNull_fields_allowed(true);
         GUI_Field[] fields = new GUI_Field[40];
         GUI gui = new GUI(fields, Color.white);
+        //gui.displayChanceCard("     ");
+
         final String regler = "Spilleregler:" +
                 "\nSpillet spilles af to spillere, som skiftes til at slå med terningerne. Man starter med 1000 point. "
                 + "Antallet af øjne afgør hvilket felt man lander på. På hvert felt fratrækkes eller tillægges et antal point til spillerens pointbeholdning. "+
@@ -28,7 +30,7 @@ public class Main {
 
         boolean afslut = false;
         while (afslut == false) {
-        String selection = gui.getUserButtonPressed("Hovedmenu", "Nyt spil", "Spilleregler", "Ændre spillernavne", "Afslut");
+        String selection = gui.getUserButtonPressed("Hovedmenu", "Nyt spil", "Spilleregler", "Ændr spillernavne", "Afslut");
         switch (selection) {
             case "Nyt spil":
                 p1.setWon(false);
@@ -43,7 +45,7 @@ public class Main {
             case "Spilleregler":
                 gui.showMessage(regler);
                 break;
-            case "Ændre spillernavne":
+            case "Ændr spillernavne":
                 name1 = gui.getUserString("Spiller 1 skriv dit navn.");
                 p1.setName(name1);
                 name2 = gui.getUserString("Spiller 2 skriv dit navn.");

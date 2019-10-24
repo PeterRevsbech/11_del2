@@ -4,14 +4,14 @@ import gui_main.GUI;
 
 public class Player {
     private Account account = new Account(1000);
-    private String name = "ukendt";
+    private String name;
     private boolean won = false;
     private GUI_Player guiPlayer;
 
     private final int MAXPOINT = 3000;
 
     public Player(String name,int pointStart){
-        account.setBalance(pointStart);
+        this.account.setBalance(pointStart);
         this.name = name;
         this.guiPlayer = new GUI_Player(name,pointStart);
 
