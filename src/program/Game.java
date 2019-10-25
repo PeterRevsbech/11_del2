@@ -11,28 +11,35 @@ public class Game {
         this.dc = dc;
     }
     int counter = 0;
-    public void play() {
+    public String play(String eventType) {
+        String message= "";
+        if(eventType == "roll"){
+            while (true) {
 
-        while (true) {
-            counter++;
-            if (counter%2 == 1) {
-             this.p1.playTurn(dc);
-            }
-         else if (counter%2 == 0) {
-             this.p2.playTurn(dc);
-            }
-         if (this.p1.getWon()) {
-             System.out.println(this.p1.getName() + " har vundet!");
-             break;
-         } else if (this.p2.getWon()) {
-             System.out.println(this.p2.getName() + " har vundet!");
-             break;
-         }
-            break;
+                counter++;
+                if (counter%2 == 1) {
+                    message = this.p1.playTurn(dc);
+                }
+                else if (counter%2 == 0) {
+                    message = this.p2.playTurn(dc);
+                }
+                if (this.p1.getWon()) {
+                    message = message + this.p1.getName() + " har vundet!";
+                    //System.out.println(this.p1.getName() + " har vundet!");
+                    break;
+                } else if (this.p2.getWon()) {
+                    message = message + this.p1.getName() + " har vundet!";
+                    //System.out.println(this.p2.getName() + " har vundet!");
+                    break;
+                }
+
+                break;
+
         }
 
 
-
+        }
+        return message;
     }
 
     public void printGameRules() {
