@@ -7,6 +7,18 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args) {
 
+        GuiController guiController = new GuiController();
+        guiController.setup();
+        guiController.mainMenu();
+
+
+
+
+
+
+
+
+
         GUI.setNull_fields_allowed(true);
         GUI_Field[] fields = new GUI_Field[40];
         GUI gui = new GUI(fields, Color.white);
@@ -31,6 +43,8 @@ public class Main {
         gui.addPlayer(p2.getGuiPlayer());
         DiceCup dc = new DiceCup(2,6);
         Game game = new Game(p1,p2,dc);
+
+
         boolean afslut = false;
         while (afslut == false) {
         String selection = gui.getUserButtonPressed("Hovedmenu", "Nyt spil", "Spilleregler", "Ændr spillernavne", "Afslut");

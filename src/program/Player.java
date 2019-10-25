@@ -14,8 +14,15 @@ public class Player {
         this.account.setBalance(pointStart);
         this.name = name;
         this.guiPlayer = new GUI_Player(name,pointStart);
-
     }
+
+    public Player(){
+        this.account.setBalance(1000);
+        this.name = "ukendt";
+        this.guiPlayer = new GUI_Player("ukendt",1000);
+    }
+
+
 
     public String playTurn(DiceCup DC){
         while(true) {
