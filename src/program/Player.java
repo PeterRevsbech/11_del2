@@ -4,7 +4,7 @@ import gui_main.GUI;
 
 public class Player {
     private Account account = new Account(1000);
-    public String name;
+    private String name;
     private boolean won = false;
     private GUI_Player guiPlayer;
 

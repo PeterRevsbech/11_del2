@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class GuiController {
 
-    private Player p1 = new Player();
-    private Player p2 = new Player();
+    private Player p1 = new Player("ukendt1",1000);
+    private Player p2 = new Player("ukendt2",1000);
     private GUI gui;
     public void mainMenu(){
         String selection = gui.getUserButtonPressed("Hovedmenu", "Nyt spil", "Spilleregler", "Ændr spillernavne", "Afslut");
@@ -25,11 +25,13 @@ public class GuiController {
         gui.showMessage("Velkommen til terningespillet version 2.5!");
 
         String name1 = gui.getUserString("Spiller 1 skriv dit navn.");
-        Player p1 = new Player(name1, 1000);
+        p1.setName(name1);
+        p1.getGuiPlayer().setName(name1);
         gui.addPlayer(p1.getGuiPlayer());
 
         String name2 = gui.getUserString("Spiller 2 skriv dit navn.");
-        Player p2 = new Player(name2, 1000);
+        p2.setName(name2);
+        p2.getGuiPlayer().setName(name2);
         gui.addPlayer(p2.getGuiPlayer());
         DiceCup dc = new DiceCup(2,6);
         Game game = new Game(p1,p2,dc);
