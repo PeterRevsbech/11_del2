@@ -8,7 +8,7 @@ public class Player {
     private boolean won = false;
     private GUI_Player guiPlayer;
 
-    private final int MAXPOINT = 3000;
+    private final int MAXPOINT = 1500;
 
     public Player(String name,int pointStart){
         this.account.setBalance(pointStart);

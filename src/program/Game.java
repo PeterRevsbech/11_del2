@@ -10,9 +10,9 @@ public class Game {
         this.p2 = p2;
         this.dc = dc;
     }
-
+    int counter = 0;
     public void play() {
-        int counter = 0;
+
         while (true) {
             counter++;
             if (counter%2 == 1) {
@@ -28,7 +28,7 @@ public class Game {
              System.out.println(this.p2.getName() + " har vundet!");
              break;
          }
-
+            break;
         }
 
 

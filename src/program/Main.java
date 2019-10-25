@@ -27,19 +27,18 @@ public class Main {
         String name2 = gui.getUserString("Spiller 2 skriv dit navn.");
         Player p2 = new Player(name2, 1000);
         gui.addPlayer(p2.getGuiPlayer());
-
+        DiceCup dc = new DiceCup(2,6);
+        Game game = new Game(p1,p2,dc);
         boolean afslut = false;
         while (afslut == false) {
-        String selection = gui.getUserButtonPressed("Hovedmenu", "Nyt spil", "Spilleregler", "Ændr spillernavne", "Afslut");
+        String selection = gui.getUserButtonPressed("Hovedmenu", "Nyt spil", "Spilleregler", "Ændr spillernavne", "Afslut","Rold");
         switch (selection) {
             case "Nyt spil":
                 p1.setWon(false);
                 p2.setWon(false);
                 p1.getAccount().setBalance(1000);
                 p2.getAccount().setBalance(1000);
-                DiceCup dc = new DiceCup(2,6);
-                Game game = new Game(p1,p2,dc);
-                game.play();
+
 
                 break;
             case "Spilleregler":
@@ -56,7 +55,15 @@ public class Main {
                 gui.close();
                 break;
 
-
+            case "Rold":
+                if(p1.getWon()==true){
+                    break;
+                }
+                if (p2.getWon()==true){
+                    break;
+                }
+                game.play();
+                break;
         }
         }
 
