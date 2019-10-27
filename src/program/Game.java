@@ -10,13 +10,13 @@ public class Game {
         this.p2 = p2;
         this.dc = dc;
     }
-    int counter = 0;
+    private int counter = 0;
     public String play(String eventType) {
         String message= "";
-        if(eventType == "roll"){
-            while (true) {
-
-                counter++;
+        if(eventType.equals("roll")){
+                if ((p1.isLastSum10() || p2.isLastSum10()) == false) {
+                    counter++;
+                }
                 if (counter%2 == 1) {
                     message = this.p1.playTurn(dc);
                 }
@@ -25,25 +25,11 @@ public class Game {
                 }
                 if (this.p1.getWon()) {
                     message = message + this.p1.getName() + " har vundet!";
-                    //System.out.println(this.p1.getName() + " har vundet!");
-                    break;
                 } else if (this.p2.getWon()) {
                     message = message + this.p1.getName() + " har vundet!";
-                    //System.out.println(this.p2.getName() + " har vundet!");
-                    break;
                 }
-
-                break;
-
-        }
-
-
         }
         return message;
-    }
-
-    public void printGameRules() {
-        System.out.println("Regler...");
     }
 
     public Player getP1() {
@@ -60,5 +46,9 @@ public class Game {
 
     public void setP2(Player p2) {
         this.p2 = p2;
+    }
+
+    public int getCounter() {
+        return this.counter;
     }
 }
