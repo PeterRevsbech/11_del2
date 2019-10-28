@@ -10,7 +10,7 @@ public class MainTest {
 
         for (int i = 0; i<100; i++) {
 
-            int testAmount = (int) (Math.random()*1000);
+            int testAmount = (int) (Math.random()*2000 - 1000);
             testPlayer.getAccount().withdraw(testAmount);
             if (testPlayer.getAccountBalance()<0) {
                 System.out.println("Spillerens balance blev negativ. Fejl i test 1.");
@@ -19,7 +19,7 @@ public class MainTest {
         }
 
         for (int i = 0; i<100; i++) {
-            int testAmount = (int) (Math.random()*1000);
+            int testAmount = (int) (Math.random()*2000) - 1000;
             testPlayer.getAccount().deposit(testAmount);
             if (testPlayer.getAccountBalance()<0) {
                 System.out.println("Spillerens balance blev negativ. Fejl i test 2.");
