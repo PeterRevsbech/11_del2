@@ -35,6 +35,7 @@ public class Main {
 
         Player p2 = new Player(name2, 1000);
         gui.addPlayer(p2.getGuiPlayer());
+
         DiceCup dc = new DiceCup(2,6);
         Game game = new Game(p1,p2,dc);
 

@@ -24,9 +24,9 @@ public class Game {
                     message = this.p2.playTurn(dc);
                 }
                 if (this.p1.getWon()) {
-                    message = message + this.p1.getName() + " har vundet!";
+                    message = message +"\n"+ this.p1.getName() + " har vundet!";
                 } else if (this.p2.getWon()) {
-                    message = message + this.p1.getName() + " har vundet!";
+                    message = message +" \n"+ this.p2.getName() + " har vundet!";
                 }
         }
         return message;
