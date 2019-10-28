@@ -1,6 +1,7 @@
 package program;
 
 public class Game {
+    private int counter = 0;
     private Player p1;
     private Player p2;
     private DiceCup dc;
@@ -10,7 +11,7 @@ public class Game {
         this.p2 = p2;
         this.dc = dc;
     }
-    private int counter = 0;
+
     public String play(String eventType) {
         String message= "";
         if(eventType.equals("roll")){
