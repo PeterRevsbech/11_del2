@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        //Setting the GUI
+        //Setting the GUI up
         GUI.setNull_fields_allowed(true);
         GUI_Field[] fields = new GUI_Field[40];
 
@@ -44,15 +44,14 @@ public class Main {
         String selection = gui.getUserButtonPressed("Hovedmenu", "Nyt spil", "Spilleregler", "Ændr spillernavne", "Afslut");
         switch (selection) {
             case "Nyt spil":
-
+                game.setCounter(0);
                 p1.getAccount().setBalance(1000);
                 p1.getGuiPlayer().setBalance(1000);
                 p1.setWon(false);
+
                 p2.getAccount().setBalance(1000);
                 p2.getGuiPlayer().setBalance(1000);
                 p2.setWon(false);
-                gui.addPlayer(p1.getGuiPlayer());
-                gui.addPlayer(p2.getGuiPlayer());
 
                 while (true) {
                     String selection2 = gui.getUserButtonPressed("Runde "+ (game.getCounter()+1), "Rul");

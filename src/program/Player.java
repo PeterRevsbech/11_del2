@@ -10,7 +10,7 @@ public class Player {
     private GUI_Player guiPlayer;
 
 
-    private final int MAXPOINT = 3000;
+    private final int MAXPOINT = 1500;
 
     public Player(String name,int pointStart){
         this.account.setBalance(pointStart);
@@ -27,47 +27,47 @@ public class Player {
             switch (DC.getDieSum()) {
                 case 2:
                     account.deposit(250);
-                    message = message + "og ramte Tower: +250 point!";
+                    message = message + "og ramte Tårnet: +250 point!";
                     break;
                 case 3:
                     account.withdraw(100);
-                    message = message + "og ramte Crater: -100 point!";
+                    message = message + "og ramte Krateret: -100 point!";
                     break;
                 case 4:
                     account.deposit(100);
-                    message = message + "og ramte Palace Gates: +100 point!";
+                    message = message + "og ramte Paladsportene: +100 point!";
                     break;
                 case 5:
                     account.withdraw(20);
-                    message = message + "og ramte Cold Desert: -20 point!";
+                    message = message + "og ramte Den Kolde Ørken: -20 point!";
                     break;
                 case 6:
                     account.deposit(180);
-                    message = message + "og ramte Walled City: +180!";
+                    message = message + "og ramte Den Indmurede By: +180!";
                     break;
                 case 7:
-                    message = message + "og ramte Monastery: 0 point!";
+                    message = message + "og ramte Klosteret: 0 point!";
                     break;
                 case 8:
                     account.withdraw(70);
-                    message = message + "og ramte Black Cave: -70 point!!";
+                    message = message + "og ramte Den Sorte Hule: -70 point!!";
                     break;
                 case 9:
                     account.deposit(60);
-                    message = message + "og ramte Huts in the mountain: +60 point!";
+                    message = message + "og ramte Hytterne i Bjergene: +60 point!";
                     break;
                 case 10:
                     account.withdraw(80);
-                    message = message + "og ramte The Werewall: -80 point! Du får en ekstra tur!";
+                    message = message + "og ramte Varulvemuren: -80 point! Du får en ekstra tur!";
                     this.lastSum10=true;
                     break;
                 case 11:
                     account.withdraw(50);
-                    message = message + "og ramte The Pitts: -50 point!";
+                    message = message + "og ramte Hullerne: -50 point!";
                     break;
                 case 12:
                     account.deposit(650);
-                    message = message + "og ramte Goldmine: +650 point!";
+                    message = message + "og ramte Guldminen: +650 point!";
                     break;
             }
             this.getGuiPlayer().setBalance(this.getAccountBalance());

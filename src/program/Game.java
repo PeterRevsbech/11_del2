@@ -51,4 +51,8 @@ public class Game {
     public int getCounter() {
         return this.counter;
     }
+
+    public void setCounter(int X) {
+        this.counter=X;
+    }
 }
