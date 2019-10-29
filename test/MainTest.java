@@ -1,10 +1,9 @@
-package test;
 import program.*;
 import java.util.*;
 public class MainTest {
     public static void main(String[] args) {
 
-        Player testPlayer = new Player("test",1000);
+        Player testPlayer = new Player(".idea/test",1000);
         int fejl1Antal = 0;
         int fejl2Antal = 0;
 
