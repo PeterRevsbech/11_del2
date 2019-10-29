@@ -20,14 +20,22 @@ public class Main {
 
         //Initializing the game
         gui.showMessage("Velkommen til terningespillet version 2!");
-        String name1 = gui.getUserString("Spiller 1 skriv dit navn.");
+        String name1;
+        while (true) {
+            name1 = gui.getUserString("Spiller 1 skriv dit navn.");
+            if (name1.equals("")) {
+                gui.showMessage("Navnet må ikke være identisk med et en nuværende spillers navn eller tomt. Prøv igen.");
+            } else {
+                break;
+            }
+        }
         Player p1 = new Player(name1, 1000);
         gui.addPlayer(p1.getGuiPlayer());
         String name2;
         while (true) {
             name2 = gui.getUserString("Spiller 2 skriv dit navn.");
-            if (name2.equals(p1.getName())) {
-                gui.showMessage("Navnet må ikke være identisk med et en nuværende spillers navn. Prøv igen.");
+            if (name2.equals(p1.getName()) || name2.equals("")) {
+                gui.showMessage("Navnet må ikke være identisk med et en nuværende spillers navn ellet tomt. Prøv igen.");
             } else {
                 break;
             }
@@ -55,7 +63,7 @@ public class Main {
                 p2.setWon(false);
 
                 while (true) {
-                    String selection2 = gui.getUserButtonPressed("Runde "+ (game.getCounter()+1), "Rul");
+                    String selection2 = gui.getUserButtonPressed("Runde "+ (game.getCounter()/2+1), "Rul");
                     if (p1.getWon()) {
                         gui.showMessage(p1.getName() + " vandt! Tillykke!");
                         break;
@@ -72,10 +80,11 @@ public class Main {
                 gui.showMessage(regler);
                 break;
             case "Ændr spillernavne":
+
                 while (true) {
                     name1 = gui.getUserString("Spiller 1 skriv dit navn.");
-                    if (name1.equals(p2.getName()) || name1.equals(p1.getName())) {
-                        gui.showMessage("Navnet må ikke være identisk med et en nuværende spillers navn. Prøv igen.");
+                    if (name1.equals(p2.getName()) || name1.equals(p1.getName()) || name1.equals("")) {
+                        gui.showMessage("Navnet må ikke være identisk med et en nuværende spillers navn ellet tomt. Prøv igen.");
                     } else {
                         p1.setName(name1);
                         break;
@@ -84,8 +93,8 @@ public class Main {
 
                 while (true) {
                     name2 = gui.getUserString("Spiller 2 skriv dit navn.");
-                    if (name2.equals(p2.getName()) || name2.equals(p1.getName())) {
-                        gui.showMessage("Navnet må ikke være identisk med et en nuværende spillers navn. Prøv igen.");
+                    if (name2.equals(p2.getName()) || name2.equals(p1.getName()) || name2.equals("")) {
+                        gui.showMessage("Navnet må ikke være identisk med et en nuværende spillers navn eller tomt. Prøv igen.");
                     } else {
                         p2.setName(name2);
                         break;
