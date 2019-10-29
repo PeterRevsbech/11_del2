@@ -8,11 +8,12 @@ public class DieTest {
 
     @Test
     public void roll() {
-        int sidenumber=1;
+        int sidenumber=0;
+        int[] X;
         for (int j=1; j < 50; j++) {
             sidenumber++;
-            int[] X = new int[sidenumber];
-            Die die = new Die(6);
+            X = new int[sidenumber];
+            Die die = new Die(sidenumber);
             for (int i = 0; i < sidenumber * 10000; i++) {
                 die.roll();
                 X[die.getFaceValue() - 1]++;
