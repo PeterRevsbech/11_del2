@@ -53,7 +53,7 @@ public class Main {
         String selection = gui.getUserButtonPressed("Hovedmenu", "Nyt spil", "Spilleregler", "Ændr spillernavne", "Afslut");
         switch (selection) {
             case "Nyt spil":
-                game.setCounter(0);
+                game.setCounter(-1);
                 p1.getAccount().setBalance(1000);
                 p1.getGuiPlayer().setBalance(1000);
                 p1.setWon(false);
@@ -63,7 +63,7 @@ public class Main {
                 p2.setWon(false);
 
                 while (true) {
-                    String selection2 = gui.getUserButtonPressed("Runde "+ (game.getCounter()/2+1), "Rul");
+
                     if (p1.getWon()) {
                         gui.showMessage(p1.getName() + " vandt! Tillykke!");
                         break;
@@ -72,6 +72,8 @@ public class Main {
                         gui.showMessage( p2.getName() + " vandt! Tillykke!");
                         break;
                     }
+                    //String selection2 = gui.getUserButtonPressed("Runde "+ (game.getCounter()/2+1), "Rul");
+
                     gui.showMessage(game.play("roll"));
                 }
 

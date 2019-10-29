@@ -1,7 +1,7 @@
 package program;
 
 public class Game {
-    private int counter = 0;
+    private int counter = -1;
     private Player p1;
     private Player p2;
     private DiceCup dc;
@@ -15,14 +15,16 @@ public class Game {
     public String play(String eventType) {
         String message= "";
         if(eventType.equals("roll")){
-                if ((p1.isLastSum10() || p2.isLastSum10()) == false) {
+                if (!(p1.isLastSum10() || p2.isLastSum10())) {
                     counter++;
                 }
+                message ="Runde "+ ((counter/2)+1) +"\n" + message;
+
                 if (counter%2 == 1) {
-                    message = this.p1.playTurn(dc);
+                    message = message + this.p1.playTurn(dc);
                 }
                 else if (counter%2 == 0) {
-                    message = this.p2.playTurn(dc);
+                    message = message + this.p2.playTurn(dc);
                 }
                 if (this.p1.getWon()) {
                     message = message +"\n"+ this.p1.getName() + " har vundet!";
